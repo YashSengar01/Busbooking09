@@ -1,0 +1,84 @@
+/* public/css/style.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    animation: fadeInUp 0.8s ease-in-out;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-weight: 600;
+    color: #00e0ff;
+}
+
+label {
+    color: #d1d1d1;
+    font-weight: 500;
+}
+
+input.form-control {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+input.form-control:focus {
+    border-color: #00e0ff;
+    box-shadow: 0 0 10px #00e0ff33;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.btn-success {
+    background-color: #00e0ff;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.btn-success:hover {
+    background-color: #00bcd4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 224, 255, 0.3);
+}
+
+a {
+    color: #80d8ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #00e5ff;
+}
+
+.alert {
+    border-radius: 10px;
+    font-size: 0.95rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

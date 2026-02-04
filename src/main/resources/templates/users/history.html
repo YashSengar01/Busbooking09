@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking History | Bus Booking</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-dark text-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/users/dashboard">BusBooking</a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="/users/history">History</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/profile">Profile</a></li>
+            <li class="nav-item"><a class="nav-link text-danger" id="logoutBtn" href="#">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">📜 Booking History</h2>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-striped align-middle">
+            <thead class="table-primary text-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Passenger Name</th>
+                    <th>Contact</th>
+                    <th>Seats</th>
+                    <th>Preference</th>
+                    <th>Bus ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="historyTableBody">
+                <!-- Filled by JS -->
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="card mt-4 shadow d-none" id="ticketCard">
+    <div class="card-header bg-success text-white">
+        🎫 E-Ticket
+    </div>
+    <div class="card-body" id="ticketBox"></div>
+</div>
+
+
+    <div id="noData" class="text-center text-warning d-none">
+        No bookings found.
+    </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/history.js"></script>
+</body>
+</html>
