@@ -1,66 +1,157 @@
-<!-- dashboard.html -->
+<!-- admindashboard.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADMINDashboard | Bus Booking</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Bus Booking</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
 </head>
-<body>
-    <div class="d-flex">
-        <div class="sidebar p-3">
-            <h4>🚌 BusBook</h4>
-            <a href="/admin/Adminbus" class="active"><i class="fas fa-tachometer-alt me-2"></i> Buses</a>
-             <a href="/admin/Adminprofile"><i class="fas fa-user me-2"></i> Profile</a>
-            <a href="/logout"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
-        </div>
-        <div class="flex-grow-1">
-            <div class="dashboard-header">
-                <h3>Welcome to your Dashboard</h3>
-            </div>
-            <div class="container mt-4">
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card bg-primary text-white p-4 shadow">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-ticket-alt me-3"></i>
-                                <div>
-                                    <h5>Bookings</h5>
-                                    <p id="bookingCount">Loading...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-success text-white p-4 shadow">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-bus me-3"></i>
-                                <div>
-                                    <h5>Buses Available</h5>
-                                    <p id="busCount">Loading...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-warning text-dark p-4 shadow">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-users me-3"></i>
-                                <div>
-                                    <h5>Passengers</h5>
-                                    <p id="passengerCount">Loading...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<body class="dash-bg">
+
+  <!-- Background blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- Mobile Topbar -->
+  <header class="topbar d-lg-none">
+    <button class="btn icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="brand">
+      <span class="brand-badge">🚌</span>
+      <span class="brand-text">BusBook</span>
     </div>
-    <script th:src="@{/js/dashboard.js}"></script>
-    <script th:src="@{/js/api.js}"></script>
+    <a class="btn icon-btn" href="/logout" title="Logout">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </header>
+
+  <div class="layout">
+
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar d-none d-lg-flex">
+      <div class="sidebar-inner">
+        <div class="brand-row">
+          <span class="brand-badge">🚌</span>
+          <div>
+            <div class="brand-text">BusBook</div>
+            <div class="brand-sub">Admin Panel</div>
+          </div>
+        </div>
+
+        <nav class="nav-links mt-3">
+          <a href="/admin/Adminbus" class="active">
+            <i class="fas fa-bus me-2"></i> Buses
+          </a>
+
+          <a href="/admin/Adminprofile">
+            <i class="fas fa-user me-2"></i> Profile
+          </a>
+
+          <div class="nav-divider"></div>
+
+          <a href="/logout" class="danger">
+            <i class="fas fa-sign-out-alt me-2"></i> Logout
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+      <section class="page-header">
+        <div>
+          <h1 class="page-title">Welcome to Admin Dashboard</h1>
+          <p class="page-subtitle">Overview of bookings, buses and passengers</p>
+        </div>
+      </section>
+
+      <section class="container-fluid py-4">
+        <div class="row g-3 g-md-4">
+          <div class="col-12 col-md-6 col-xl-4">
+            <div class="stat-card stat-blue">
+              <div class="stat-icon">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div class="stat-body">
+                <div class="stat-title">Bookings</div>
+                <div class="stat-value" id="bookingCount">Loading...</div>
+                <div class="stat-hint">Total bookings</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4">
+            <div class="stat-card stat-green">
+              <div class="stat-icon">
+                <i class="fas fa-bus"></i>
+              </div>
+              <div class="stat-body">
+                <div class="stat-title">Buses Available</div>
+                <div class="stat-value" id="busCount">Loading...</div>
+                <div class="stat-hint">Active buses</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4">
+            <div class="stat-card stat-amber">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-body">
+                <div class="stat-title">Passengers</div>
+                <div class="stat-value" id="passengerCount">Loading...</div>
+                <div class="stat-hint">Registered passengers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Mobile Sidebar (Offcanvas) -->
+  <div class="offcanvas offcanvas-start mobile-canvas" tabindex="-1" id="mobileSidebar">
+    <div class="offcanvas-header">
+      <div class="brand-row">
+        <span class="brand-badge">🚌</span>
+        <div>
+          <div class="brand-text">BusBook</div>
+          <div class="brand-sub">Admin Panel</div>
+        </div>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <nav class="nav-links">
+        <a href="/admin/Adminbus" class="active">
+          <i class="fas fa-bus me-2"></i> Buses
+        </a>
+
+        <a href="/admin/Adminprofile">
+          <i class="fas fa-user me-2"></i> Profile
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="/logout" class="danger">
+          <i class="fas fa-sign-out-alt me-2"></i> Logout
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script th:src="@{/js/api.js}"></script>
+  <script th:src="@{/js/dashboard.js}"></script>
 </body>
 </html>

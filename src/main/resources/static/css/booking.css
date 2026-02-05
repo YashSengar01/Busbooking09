@@ -1,120 +1,103 @@
-/* Background & body */
-body {
-    background: #0f2027;  /* fallback for old browsers */
-    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ===== BACKGROUND ===== */
+.booking-bg {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     min-height: 100vh;
+    color: white;
 }
 
-/* Page heading */
-h2 {
-    text-shadow: 0 0 5px #00e0ff, 0 0 10px #00e0ff;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-/* Navbar */
-.navbar {
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
-}
-
-/* Cards */
-.card {
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-    background-color: rgba(255, 255, 255, 0.05);
+/* ===== NAVBAR ===== */
+.glass-nav {
+    background: rgba(0,0,0,0.35);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 255, 255, 0.2);
+/* ===== TITLE ===== */
+.title-glow {
+    text-shadow: 0 0 8px cyan;
 }
 
-/* Card headers */
-.card-header {
-    font-weight: bold;
-    font-size: 1.2rem;
+/* ===== CARD ===== */
+.glass-card {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(14px);
+
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.header-glow {
     background: linear-gradient(135deg, #00e0ff, #0077ff);
-    color: #fff;
-    border-bottom: none;
+    font-weight: bold;
 }
 
-/* Forms */
+/* ===== INPUTS ===== */
 .form-control,
 .form-select {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
 }
 
 .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255,255,255,0.6);
 }
 
 .form-control:focus,
 .form-select:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #00e0ff;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-    color: #fff;
+    background: rgba(255,255,255,0.12);
+    border-color: cyan;
+    box-shadow: 0 0 8px cyan;
+    color: white;
 }
 
-/* Buttons */
-.btn-success {
-    background-color: #00e0ff;
-    border-color: #00e0ff;
+/* ===== BUTTON ===== */
+.btn-glow {
+    background: #00e0ff;
+    color: #002;
     font-weight: bold;
-    color: #001f33;
-    box-shadow: 0 0 5px #00e0ff, 0 0 10px #00e0ff;
-    transition: 0.3s ease;
+
+    box-shadow: 0 0 10px cyan;
+    transition: .3s;
 }
 
-.btn-success:hover {
-    background-color: #00bcd4;
-    border-color: #00bcd4;
-    color: #000;
-    box-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff;
+.btn-glow:hover {
+    background: #00bcd4;
+    box-shadow: 0 0 20px cyan;
 }
 
-/* Table */
-.table {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #fff;
+/* ===== TABLE ===== */
+.table-dark {
+    background: rgba(0,0,0,0.4);
 }
 
-.table thead {
-    background-color: #0077ff;
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.table td,
-.table th {
-    border-color: rgba(255, 255, 255, 0.2);
+.animate-fade {
+    animation: fadeIn .6s ease-in-out;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: rgba(255, 255, 255, 0.03);
-}
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
 
-/* Inputs inside table search */
-#fromLocation,
-#toLocation {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: 0.3s;
-}
+    .glass-card {
+        margin-bottom: 10px;
+    }
 
-#fromLocation:focus,
-#toLocation:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #00e0ff;
-    box-shadow: 0 0 10px #00e0ff;
-    color: #fff;
+    .title-glow {
+        font-size: 22px;
+    }
+
 }

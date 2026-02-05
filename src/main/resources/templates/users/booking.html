@@ -2,97 +2,146 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Book a Bus</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <link rel="stylesheet" th:href="@{/css/booking.css}">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script th:src="@{/js/booking.js}"></script>
 </head>
-<body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/users/dashboard">BusBooking</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/users/dashboard">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/users/profile">Profile</a></li>
-                <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logout()">Logout</a></li>
-            </ul>
-        </div>
+
+<body class="booking-bg">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark glass-nav">
+  <div class="container-fluid">
+
+    <a class="navbar-brand fw-bold" href="/users/dashboard">🚌 BusBooking</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/users/dashboard">Dashboard</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="/users/profile">Profile</a>
+        </li>
+
+        <a href="/" class="danger">
+            <i class="fas fa-sign-out-alt me-2"></i> Logout
+          </a>
+      </ul>
     </div>
+
+  </div>
 </nav>
 
-  <div class="container mt-4">
-    <h2 class="text-center mb-4">🚌 Book Your Bus</h2>
+<div class="container py-4">
 
-    <div class="row">
-      <!-- Booking Form -->
-      <div class="col-md-6">
-        <div class="card shadow-sm">
-          <div class="card-header bg-primary text-white">
-            Booking Form
-          </div>
-          <div class="card-body">
-            <form id="bookingForm">
-              <div class="mb-3">
-                <label class="form-label">Passenger Name</label>
-                <input type="text" id="passengerName" name="passengerName" class="form-control" required>
+  <h2 class="text-center mb-4 title-glow">🚌 Book Your Bus</h2>
 
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Email / Phone</label>
-                <input type="text" id="contactInfo" name="contactInfo" class="form-control" required>
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Number of Seats</label>
-                <input type="text" id="seatCount" name="numberOfSeats" class="form-control" required  min="1">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Seat Preference</label>
-                <select name="seatPreference" class="form-select" id="seatPreference" required>
-                  <option>Window</option>
-                  <option>Aisle</option>
-                  <option>No Preference</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Select Bus</label>
-                <select name="selectedBusId" class="form-select" id="busDropdown" required>
+  <div class="row g-4">
 
-                  <option disabled selected value="">Loading buses...</option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-success w-100">Book Now</button>
-            </form>
-          </div>
+    <!-- BOOKING FORM -->
+    <div class="col-lg-6">
+      <div class="card glass-card animate-fade">
+
+        <div class="card-header header-glow">
+          Booking Form
         </div>
-      </div>
 
-      <!-- Bus List -->
-      <div class="col-md-6">
-        <div class="card shadow-sm">
-          <div class="card-header bg-secondary text-white">
-            Available Buses
-          </div>
-          <div class="card-body">
-            <table class="table table-bordered table-striped" id="busTable">
-              <thead>
-                <tr>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>Departure</th>
-                  <th>Arrival</th>
-                </tr>
-              </thead>
-              <tbody id="busTableBody">
-                <!-- Filled dynamically -->
-              </tbody>
-            </table>
-          </div>
+        <div class="card-body">
+
+          <form id="bookingForm">
+
+            <div class="mb-3">
+              <label class="form-label">Passenger Name</label>
+              <input type="text" id="passengerName"
+                     class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email / Phone</label>
+              <input type="text" id="contactInfo"
+                     class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Number of Seats</label>
+
+              <input type="number" id="seatCount"
+                     class="form-control" min="1" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Seat Preference</label>
+
+              <select id="seatPreference" class="form-select">
+                <option>Window</option>
+                <option>Aisle</option>
+                <option>No Preference</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Select Bus</label>
+
+              <select id="busDropdown" class="form-select" required>
+                <option disabled selected>
+                  Loading buses...
+                </option>
+              </select>
+            </div>
+
+            <button class="btn btn-glow w-100">
+              Book Now
+            </button>
+
+          </form>
+
         </div>
       </div>
     </div>
+
+    <!-- BUS LIST -->
+    <div class="col-lg-6">
+      <div class="card glass-card animate-fade">
+
+        <div class="card-header header-glow">
+          Available Buses
+        </div>
+
+        <div class="card-body table-responsive">
+
+          <table class="table table-dark table-hover">
+            <thead>
+            <tr>
+              <th>From</th>
+              <th>To</th>
+              <th>Departure</th>
+              <th>Arrival</th>
+            </tr>
+            </thead>
+
+            <tbody id="busTableBody">
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 
 </body>
 </html>

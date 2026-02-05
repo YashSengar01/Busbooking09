@@ -1,30 +1,118 @@
+/* ===== BACKGROUND ===== */
+.profile-bg {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.glass-nav {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ===== CARD ===== */
 .profile-card {
-    width: 100%;
-    max-width: 400px;
-    padding: 25px;
-    background: #1e1e1e;
-    border-radius: 15px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
 }
 
+/* ===== TITLE ===== */
+.title-glow {
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+}
+
+/* ===== SECTION ===== */
+.section-title {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+}
+
+.soft-divider {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== PROFILE IMAGE ===== */
 .profile-img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border: 4px solid #0d6efd;
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border: 3px solid rgba(0, 224, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.25);
 }
 
-/* Animation */
+/* ===== INPUTS ===== */
+.form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 12px;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #00e0ff;
+  box-shadow: 0 0 10px rgba(0, 224, 255, 0.45);
+  color: #fff;
+}
+
+/* input-group buttons */
+.input-group .btn {
+  border-radius: 12px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-success {
+  background: #00e0ff;
+  border: none;
+  color: #001f33;
+  font-weight: 800;
+  border-radius: 12px;
+  transition: 0.25s;
+}
+
+.btn-success:hover {
+  background: #00bcd4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 224, 255, 0.25);
+}
+
+.btn-info {
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.btn-warning {
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .animate-fade {
-    animation: fadeIn 0.6s ease-in-out;
+  animation: fadeInUp 0.6s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 576px) {
+  .profile-img {
+    width: 95px;
+    height: 95px;
+  }
 }

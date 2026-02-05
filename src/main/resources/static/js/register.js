@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 messageDiv.classList.remove("d-none");
 
                 setTimeout(() => {
-                    window.location.href = "/login";
+                    window.location.href = "/";
                 }, 1500);
             } else {
                 // Error
@@ -44,4 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
             messageDiv.classList.remove("d-none");
         }
     });
+    const toggle = document.getElementById("togglePass");
+    const pass = document.getElementById("password");
+    if (toggle && pass) {
+      toggle.addEventListener("click", () => {
+        const isHidden = pass.type === "password";
+        pass.type = isHidden ? "text" : "password";
+        toggle.textContent = isHidden ? "🙈" : "👁️";
+      });
+    }
 });

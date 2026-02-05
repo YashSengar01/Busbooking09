@@ -35,4 +35,14 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         messageBox.textContent = "Invalid username or password";
         messageBox.style.color = "red";
     }
+
+     const toggle = document.getElementById("togglePass");
+    const pass = document.getElementById("password");
+    if (toggle && pass) {
+      toggle.addEventListener("click", () => {
+        const isHidden = pass.type === "password";
+        pass.type = isHidden ? "text" : "password";
+        toggle.textContent = isHidden ? "🙈" : "👁️";
+      });
+    }
 });

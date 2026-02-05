@@ -1,0 +1,84 @@
+/* ===== BACKGROUND ===== */
+.history-bg {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.glass-nav {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ===== CARD ===== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===== TITLE ===== */
+.title-glow {
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+}
+
+/* ===== TABLE ===== */
+.table {
+  color: #fff;
+}
+
+.table-head {
+  background: linear-gradient(135deg, #00e0ff, #0077ff);
+  color: #001f33;
+}
+
+.table-hover tbody tr:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-box {
+  text-align: center;
+  padding: 30px;
+  font-size: 1.1rem;
+  color: #ffcc00;
+}
+
+/* ===== TICKET CARD ===== */
+.ticket-card {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+}
+
+.ticket-header {
+  background: linear-gradient(135deg, #00ff99, #00cc66);
+  color: #001f33;
+  font-weight: bold;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.85rem;
+  }
+
+  .title-glow {
+    font-size: 1.3rem;
+  }
+}

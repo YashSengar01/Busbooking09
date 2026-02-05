@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (!res || res.status === 401 || res.status === 403) {
             localStorage.clear();
-            window.location.href = "/login";
+            window.location.href = "/";
             return;
         }
 

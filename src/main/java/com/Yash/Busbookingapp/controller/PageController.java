@@ -12,7 +12,7 @@ public class PageController {
         return "register";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String loginPage() {
         return "login"; // Refers to "login.html" in the templates folder
     }

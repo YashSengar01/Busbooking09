@@ -56,11 +56,11 @@
 .auth-card{
   position:relative;
   z-index:1;
-  max-width: 520px;
+  max-width: 440px;
   background: var(--card);
   border: 1px solid var(--stroke);
   border-radius: 22px;
-  padding: 26px 20px;
+  padding: 28px 22px;
   backdrop-filter: blur(14px);
   box-shadow: 0 20px 60px rgba(0,0,0,.35);
   animation: pop .55s ease both;
@@ -135,7 +135,6 @@
   box-shadow: 0 0 0 .20rem rgba(0,224,255,.18) !important;
   border-color: rgba(0,224,255,.55) !important;
   background: rgba(255,255,255,.08) !important;
-  color: var(--text) !important;
 }
 
 .toggle-pass{
@@ -153,15 +152,23 @@
   background: rgba(255,255,255,.10);
 }
 
-.hint{
-  font-size: .85rem;
-  color: rgba(255,255,255,.60);
+.form-check-label{
+  color: var(--soft);
+}
+
+.link-lightish{
+  color: rgba(128,216,255,.95);
+  text-decoration: none;
+}
+.link-lightish:hover{
+  text-decoration: underline;
+  color: var(--primary);
 }
 
 .auth-btn{
   height: 46px;
   border-radius: 14px;
-  font-weight: 800;
+  font-weight: 700;
   border: none;
   background: linear-gradient(90deg, var(--primary), var(--primary2));
   box-shadow: 0 12px 30px rgba(0,224,255,.12);
@@ -202,15 +209,6 @@
   background: rgba(255,255,255,.18);
   transform: translateY(-50%);
   z-index:-1;
-}
-
-.link-lightish{
-  color: rgba(128,216,255,.95);
-  text-decoration: none;
-}
-.link-lightish:hover{
-  text-decoration: underline;
-  color: var(--primary);
 }
 
 .text-light-soft{
